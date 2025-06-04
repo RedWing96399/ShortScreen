@@ -26,6 +26,11 @@ func GetMux() *http.ServeMux {
 	mux := http.NewServeMux()
 
 	mux.HandleFunc("/", routes.Home)
+	mux.HandleFunc("GET /images", routes.ListImages)
+	mux.HandleFunc("GET /images/{id}", routes.GetImage)
+	mux.HandleFunc("POST /images", routes.UploadImages)
+	mux.HandleFunc("PATCH /images/{id}", routes.UpdateImage)
+	mux.HandleFunc("DELTE /images/{id}", routes.DeleteImage)
 
 	return mux
 }
